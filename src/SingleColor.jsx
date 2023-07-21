@@ -1,4 +1,4 @@
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
 
 const SingleColor = ({ color, index }) => {
   const { hex, weight } = color;
@@ -6,23 +6,22 @@ const SingleColor = ({ color, index }) => {
     if (navigator.clipboard) {
       try {
         await navigator.clipboard.writeText(`#${hex}`);
-        toast.success("Color copied to clipboard");
+        toast.success('Color copied to clipboard');
       } catch (error) {
-        toast.error("Failed to copy color to clipboard");
+        toast.error('Failed to copy color to clipboard');
       }
     } else {
-      toast.error("Clipboard access is not available");
+      toast.error('Clipboard access is not available');
     }
   };
 
   return (
     <article
-      className={index > 10 ? "color color-light" : "color"}
+      className={index > 10 ? 'color color-light' : 'color'}
       style={{ background: `#${hex}` }}
-      onClick={saveToClipboard}
-    >
-      <p className="percent-value">{weight}%</p>
-      <p className="color-value">#{hex}</p>
+      onClick={saveToClipboard}>
+      <p className='percent-value'>{weight}%</p>
+      <p className='color-value'>#{hex}</p>
     </article>
   );
 };
